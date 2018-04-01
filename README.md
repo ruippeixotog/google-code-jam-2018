@@ -30,10 +30,10 @@ The following is the list of the problems solved. Each problem identifier is spe
 
 ### Practice Session
 
-* ? [A. Number Guessing][prac1] (`number-guessing`)
-* ? [B. Senate Evacuation][prac2] (`senate-evacuation`)
-* ? [C. Steed 2: Cruise Control][prac3] (`steed2-cruise-control`)
-* ? [D. Bathroom Stalls][prac4] (`bathroom-stalls`)
+* ✓ [A. Number Guessing][prac1] (`number-guessing`)
+* ✓ [B. Senate Evacuation][prac2] (`senate-evacuation`)
+* ✓ [C. Steed 2: Cruise Control][prac3] (`steed2-cruise-control`)
+* ✓ [D. Bathroom Stalls][prac4] (`bathroom-stalls`)
 
 [1]: https://code.google.com/codejam
 [2]: https://code.google.com/codejam/resources/quickstart-guide#dcj

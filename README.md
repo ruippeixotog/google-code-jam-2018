@@ -35,9 +35,20 @@ The following is the list of the problems solved. Each problem identifier is spe
 * ✓ [C. Steed 2: Cruise Control][prac3] (`steed2-cruise-control`)
 * ✓ [D. Bathroom Stalls][prac4] (`bathroom-stalls`)
 
+### Qualification Round
+
+* ✓ [A. Saving The Universe Again][qual1] (`saving-the-universe-again`)
+* ✓ [B. Trouble Sort][qual2] (`trouble-sort`)
+* ✓ [C. Go, Gopher!][qual3] (`go-gopher`)
+* ✓ [D. Cubic UFO][qual4] (`cubic-ufo`)
+
 [1]: https://code.google.com/codejam
 [2]: https://code.google.com/codejam/resources/quickstart-guide#dcj
 [prac1]: https://codejam.withgoogle.com/2018/challenges/0000000000000130/dashboard
 [prac2]: https://codejam.withgoogle.com/2018/challenges/0000000000000130/dashboard/00000000000004c0
 [prac3]: https://codejam.withgoogle.com/2018/challenges/0000000000000130/dashboard/0000000000000524
 [prac4]: https://codejam.withgoogle.com/2018/challenges/0000000000000130/dashboard/0000000000000652
+[qual1]: https://codejam.withgoogle.com/2018/challenges/00000000000000cb/dashboard
+[qual2]: https://codejam.withgoogle.com/2018/challenges/00000000000000cb/dashboard/00000000000079cb
+[qual3]: https://codejam.withgoogle.com/2018/challenges/00000000000000cb/dashboard/0000000000007a30
+[qual4]: https://codejam.withgoogle.com/2018/challenges/00000000000000cb/dashboard/00000000000079cc

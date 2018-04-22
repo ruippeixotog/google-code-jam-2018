@@ -42,6 +42,12 @@ The following is the list of the problems solved. Each problem identifier is spe
 * ✓ [C. Go, Gopher!][qual3] (`go-gopher`)
 * ✓ [D. Cubic UFO][qual4] (`cubic-ufo`)
 
+### Round 1A
+
+* ✓ [A. Waffle Choppers][round1a1] (`waffle-choppers`)
+* ✓ [B. Bit Party][round1a2] (`bit-party`)
+* ✓ [C. Edgy Baking][round1a3] (`edgy-baking`)
+
 [1]: https://code.google.com/codejam
 [2]: https://code.google.com/codejam/resources/quickstart-guide#dcj
 [prac1]: https://codejam.withgoogle.com/2018/challenges/0000000000000130/dashboard
@@ -52,3 +58,6 @@ The following is the list of the problems solved. Each problem identifier is spe
 [qual2]: https://codejam.withgoogle.com/2018/challenges/00000000000000cb/dashboard/00000000000079cb
 [qual3]: https://codejam.withgoogle.com/2018/challenges/00000000000000cb/dashboard/0000000000007a30
 [qual4]: https://codejam.withgoogle.com/2018/challenges/00000000000000cb/dashboard/00000000000079cc
+[round1a1]: https://codejam.withgoogle.com/2018/challenges/0000000000007883/dashboard
+[round1a2]: https://codejam.withgoogle.com/2018/challenges/0000000000007883/dashboard/000000000002fff6
+[round1a3]: https://codejam.withgoogle.com/2018/challenges/0000000000007883/dashboard/000000000002fff7

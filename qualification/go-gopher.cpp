@@ -1,17 +1,7 @@
-#include <algorithm>
 #include <cstdio>
 #include <cstring>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <string>
-#include <utility>
-#include <vector>
 
 #define MAXA 200
-
-using namespace std;
 
 bool field[MAXA / 3 + 2][4];
 

@@ -1,13 +1,5 @@
 #include <algorithm>
 #include <cstdio>
-#include <cstring>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <string>
-#include <utility>
-#include <vector>
 
 #define MAXN 100000
 

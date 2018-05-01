@@ -50,6 +50,7 @@ The following is the list of the problems solved. Each problem identifier is spe
 
 ### Round 1B
 
+* ✓ [A. Rounding Error][round1b1] (`rounding-error`)
 * ✗ [B. Mysterious Road Signs][round1b2] (`mysterious-road-signs`)
 * ✓ [C. Transmutation][round1b3] (`transmutation`)
 
@@ -66,5 +67,6 @@ The following is the list of the problems solved. Each problem identifier is spe
 [round1a1]: https://codejam.withgoogle.com/2018/challenges/0000000000007883/dashboard
 [round1a2]: https://codejam.withgoogle.com/2018/challenges/0000000000007883/dashboard/000000000002fff6
 [round1a3]: https://codejam.withgoogle.com/2018/challenges/0000000000007883/dashboard/000000000002fff7
+[round1b1]: https://codejam.withgoogle.com/2018/challenges/0000000000007764/dashboard
 [round1b2]: https://codejam.withgoogle.com/2018/challenges/0000000000007764/dashboard/000000000003675b
 [round1b3]: https://codejam.withgoogle.com/2018/challenges/0000000000007764/dashboard/000000000003675c

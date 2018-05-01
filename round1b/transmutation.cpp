@@ -1,57 +1,58 @@
-#include <algorithm>
 #include <cstdio>
 #include <cstring>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <string>
-#include <utility>
-#include <vector>
 
 #define MAXN 100
-#define INF 0x3f3f3f3f
-
-using namespace std;
 
 typedef long long ll;
-typedef long double ld;
 
-int r1[MAXN], r2[MAXN], g[MAXN];
+int m, r1[MAXN], r2[MAXN], g[MAXN];
 
-bool visited[MAXN];
+ll r[MAXN][MAXN], reqs[MAXN];
 
-ll make(int k, ll maxRes) {
-  if(visited[k]) return 0;
-  visited[k] = true;
-
-//  cerr << "making " << k << " (max " << maxRes << ")" << endl;
-
-  ll res = min(maxRes, (ll) g[k]);
-  g[k] -= res;
-  if(res == maxRes) { visited[k] = false; return res; }
-
-  ll direct = min(maxRes - res, (ll) min(g[r1[k]], g[r2[k]]));
-  g[r1[k]] -= direct; g[r2[k]] -= direct;
-  res += direct;
-  if(res == maxRes) { visited[k] = false; return res; }
-
-  while(res < maxRes) {
-    ll mk1 = make(r1[k], 1);
-    ll mk2 = make(r2[k], 1);
-    if(mk1 != 1 || mk2 != 1) break;
-    res++;
+bool make(ll qty) {
+  memset(r, 0, sizeof(r));
+  for(int i = 0; i < m; i++) {
+    r[i][r1[i]]++; r[i][r2[i]]++;
+    reqs[i] = -g[i];
   }
-  visited[k] = false;
-  return res;
+  reqs[0] += qty;
+
+  bool done = false;
+  while(!done) {
+    done = true;
+    for(int i = 0; i < m; i++) {
+      if(reqs[i] <= 0) continue;
+      if(r[i][i]) return false;
+      done = false;
+
+      for(int j = 0; j < m; j++) {
+        reqs[j] += reqs[i] * r[i][j];
+      }
+      reqs[i] = 0;
+
+      for(int j = 0; j < m; j++) {
+        if(!r[j][i]) continue;
+        for(int k = 0; k < m; k++) {
+          r[j][k] += r[j][i] * r[i][k];
+        }
+        r[j][i] = 0;
+      }
+    }
+
+    ll reqsSum = 0;
+    for(int i = 0; i < m; i++) {
+      reqsSum += reqs[i];
+    }
+    if(reqsSum > 0) return false;
+  }
+  return true;
 }
 
 int main() {
   int t; scanf("%d\n", &t);
   for(int tc = 1; tc <= t; tc++) {
-//    cerr << "tc " << tc << endl;
-
-    int m; scanf("%d\n", &m);
+    scanf("%d\n", &m);
+    memset(r, 0, sizeof(r));
     for(int i = 0; i < m; i++) {
       scanf("%d %d\n", &r1[i], &r2[i]);
       r1[i]--; r2[i]--;
@@ -59,9 +60,14 @@ int main() {
     for(int i = 0; i < m; i++) {
       scanf("%d", &g[i]);
     }
-    memset(visited, false, sizeof(visited));
-    ll res = make(0, INF * INF);
-    printf("Case #%d: %lld\n", tc, res);
+
+    ll minL = 0, maxL = 7000000000LL;
+    while(minL < maxL) {
+      ll midL = (minL + maxL + 1) / 2;
+      if(make(midL)) minL = midL;
+      else maxL = midL - 1;
+    }
+    printf("Case #%d: %lld\n", tc, minL);
   }
   return 0;
 }

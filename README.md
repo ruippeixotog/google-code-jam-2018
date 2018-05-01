@@ -51,7 +51,7 @@ The following is the list of the problems solved. Each problem identifier is spe
 ### Round 1B
 
 * ✗ [B. Mysterious Road Signs][round1b2] (`mysterious-road-signs`)
-* ✗ [C. Transmutation][round1b3] (`transmutation`)
+* ✓ [C. Transmutation][round1b3] (`transmutation`)
 
 [1]: https://code.google.com/codejam
 [2]: https://code.google.com/codejam/resources/quickstart-guide#dcj

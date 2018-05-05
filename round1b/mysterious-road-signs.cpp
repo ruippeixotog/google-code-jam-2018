@@ -1,50 +1,51 @@
 #include <algorithm>
 #include <cstdio>
-#include <cstring>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <string>
-#include <utility>
-#include <vector>
 
-#define MAXN 100
+#define MAXN 100000
 #define INF 0x3f3f3f3f
 
 using namespace std;
 
-typedef long long ll;
-typedef long double ld;
+int s, da[MAXN], db[MAXN];
 
-int d[MAXN], a[MAXN], b[MAXN];
+pair<int, int> search(int st, int a, int b, int inc) {
+  int idx1 = st + inc;
+  for(; idx1 >= 0 && idx1 < s; idx1 += inc) {
+    if(da[idx1] == a || db[idx1] == b) continue;
+    if(a == INF) a = da[idx1];
+    else if(b == INF) b = db[idx1];
+    else break;
+  }
+  int idx2 = st - inc;
+  for(; idx2 >= 0 && idx2 < s; idx2 -= inc) {
+    if(da[idx2] == a || db[idx2] == b) continue;
+    if(a == INF) a = da[idx2];
+    else if(b == INF) b = db[idx2];
+    else break;
+  }
+  return { abs(idx1 - st) + abs(st - idx2) - 1, max(idx1, idx2) };
+}
 
 int main() {
   int t; scanf("%d\n", &t);
   for(int tc = 1; tc <= t; tc++) {
-    int s; scanf("%d\n", &s);
-    for(int i = 0; i < s; i++)
-      scanf("%d %d %d\n", &d[i], &a[i], &b[i]);
-
-    int best = 0, bestCnt = 0;
+    scanf("%d\n", &s);
     for(int i = 0; i < s; i++) {
-      int idx = i + 1, da = d[i] + a[i], db = INF;
-      for(; idx < s; idx++) {
-        if(d[idx] + a[idx] == da || d[idx] - b[idx] == db) continue;
-        if(db == INF) db = d[idx] - b[idx];
-        else break;
-      }
-      int sz = idx - i;
-      idx = i + 1, da = INF, db = d[i] - b[i];
-      for(; idx < s; idx++) {
-        if(d[idx] + a[idx] == da || d[idx] - b[idx] == db) continue;
-        if(da == INF) da = d[idx] + a[idx];
-        else break;
-      }
-      if(idx - i > sz) { sz = idx - i; }
+      int di, ai, bi; scanf("%d %d %d\n", &di, &ai, &bi);
+      da[i] = di + ai; db[i] = di - bi;
+    }
 
-      if(sz > best) { best = sz; bestCnt = 1; }
-      else if(sz == best) { bestCnt++; }
+    int i = 0, best = 0, bestCnt = 0;
+    while(i < s) {
+      auto resFwd = max(search(i, da[i], INF, 1), search(i, INF, db[i], 1));
+      if(resFwd.first > best) { best = resFwd.first; bestCnt = 1; }
+      else if(resFwd.first == best) bestCnt++;
+
+      auto resBck = max(search(i, da[i], INF, -1), search(i, INF, db[i], -1));
+      if(resBck.first > best) { best = resBck.first; bestCnt = 1; }
+      else if(resBck.first == best && resBck.second != resFwd.second) bestCnt++;
+
+      i = resFwd.second;
     }
     printf("Case #%d: %d %d\n", tc, best, bestCnt);
   }

@@ -14,7 +14,7 @@ void insert(int ci) {
   int curr = (ci * 100 + (n / 2)) / n;
   int next = ((ci + 1) * 100 + (n / 2)) / n;
   int nextMod = ((ci + 1) * 100 + (n / 2) + (n - 1)) % n;
-  s.insert(make_tuple(next - curr, nextMod, ci));
+  s.insert({next - curr, nextMod, ci});
 }
 
 int main() {

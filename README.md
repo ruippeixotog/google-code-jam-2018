@@ -63,7 +63,7 @@ The following is the list of the problems solved. Each problem identifier is spe
 ### Round 2
 
 * ✓ [A. Falling Balls][round21] (`falling-balls`)
-* ✗ [B. Graceful Chainsaw Jugglers][round22] (`graceful-chainsaw-jugglers`)
+* ✓ [B. Graceful Chainsaw Jugglers][round22] (`graceful-chainsaw-jugglers`)
 * ✗ [C. Costume Change][round23] (`costume-change`)
 
 [1]: https://code.google.com/codejam

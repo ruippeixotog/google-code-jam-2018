@@ -1,21 +1,11 @@
 #include <algorithm>
 #include <cstdio>
 #include <cstring>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <string>
-#include <utility>
-#include <vector>
 
-#define MAXRB 50
-#define INF 0x3f3f3f3f
+#define MAXRB 500
+#define MAXSZ 45 // solve MAXRB * 2 = MAXSZ * (MAXSZ + 1) / 2
 
 using namespace std;
-
-typedef long long ll;
-typedef long double ld;
 
 int dp[MAXRB + 1][MAXRB + 1];
 
@@ -26,7 +16,7 @@ int main() {
 
     memset(dp, -1, sizeof(dp));
     dp[r][b] = 0;
-    for(int sz = 1; sz <= r + b; sz++) {
+    for(int sz = 1; sz <= MAXSZ; sz++) {
       for(int nr = 0; nr <= sz; nr++) {
         int nb = sz - nr;
         for(int i = nr; i <= r; i++) {

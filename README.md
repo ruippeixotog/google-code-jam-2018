@@ -65,6 +65,7 @@ The following is the list of the problems solved. Each problem identifier is spe
 * ✓ [A. Falling Balls][round21] (`falling-balls`)
 * ✓ [B. Graceful Chainsaw Jugglers][round22] (`graceful-chainsaw-jugglers`)
 * ✓ [C. Costume Change][round23] (`costume-change`)
+* ✓ [D. Gridception][round24] (`gridception`)
 
 [1]: https://code.google.com/codejam
 [2]: https://code.google.com/codejam/resources/quickstart-guide#dcj
@@ -88,3 +89,4 @@ The following is the list of the problems solved. Each problem identifier is spe
 [round21]: https://codejam.withgoogle.com/2018/challenges/0000000000007706/dashboard
 [round22]: https://codejam.withgoogle.com/2018/challenges/0000000000007706/dashboard/00000000000459f3
 [round23]: https://codejam.withgoogle.com/2018/challenges/0000000000007706/dashboard/0000000000045875
+[round24]: https://codejam.withgoogle.com/2018/challenges/0000000000007706/dashboard/00000000000459f4

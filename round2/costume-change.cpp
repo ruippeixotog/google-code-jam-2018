@@ -1,50 +1,37 @@
-#include <algorithm>
 #include <cstdio>
 #include <cstring>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <string>
-#include <utility>
-#include <vector>
 
-#define MAXN 4
-#define MAXA 8
-#define INF 0x3f3f3f3f
-
-using namespace std;
-
-typedef long long ll;
-typedef long double ld;
+#define MAXN 100
 
 int n, a[MAXN][MAXN];
 
-bool usedRow[MAXN][MAXA], usedCol[MAXN][MAXA];
-int best;
+bool seen[MAXN];
+int matchL[MAXN], matchR[MAXN];
 
-void solve(int ik, int jk, int curr) {
-  if(curr >= best) return;
-  if(jk == n) { ik++; jk = 0; }
-  if(ik == n) {
-    memset(usedRow, false, sizeof(usedRow));
-    memset(usedCol, false, sizeof(usedCol));
-    for(int i = 0; i < n; i++) {
-      for(int j = 0; j < n; j++) {
-        if(a[i][j] == -1) continue;
-        if(usedRow[i][a[i][j]] || usedCol[j][a[i][j]]) return;
-        usedRow[i][a[i][j]] = usedCol[j][a[i][j]] = true;
+bool bpmDfs(int k, int u) {
+  for(int v = 0; v < n; v++) {
+    if(a[u][v] == k) {
+      if(seen[v]) continue;
+      seen[v] = true;
+
+      if(matchR[v] < 0 || bpmDfs(k, matchR[v])) {
+        matchL[u] = v; matchR[v] = u;
+        return true;
       }
     }
-    best = curr;
   }
+  return false;
+}
 
-  solve(ik, jk + 1, curr);
-
-  int oldA = a[ik][jk];
-  a[ik][jk] = -1;
-  solve(ik, jk + 1, curr + 1);
-  a[ik][jk] = oldA;
+int bpm(int k) {
+  memset(matchL, -1, sizeof(matchL));
+  memset(matchR, -1, sizeof(matchR));
+  int cnt = 0;
+  for(int i = 0; i < n; i++) {
+    memset(seen, false, sizeof(seen));
+    if(bpmDfs(k, i)) cnt++;
+  }
+  return cnt;
 }
 
 int main() {
@@ -57,9 +44,11 @@ int main() {
         a[i][j] = aij < 0 ? -aij - 1 : n + aij - 1;
       }
     }
-    best = INF;
-    solve(0, 0, 0);
-    printf("Case #%d: %d\n", tc, best);
+    int correct = 0;
+    for(int k = 0; k < 2 * n; k++) {
+      correct += bpm(k);
+    }
+    printf("Case #%d: %d\n", tc, n * n - correct);
   }
   return 0;
 }
